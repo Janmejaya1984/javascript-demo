@@ -1,0 +1,1 @@
+document.write("<h1>I am an external Javascript File</h1>");
