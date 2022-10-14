@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+</head>
+
+<body>
+ <h1>Details about India</h1>
+    <script>
+        var xhr = new XMLHttpRequest(); // 1.Create request object
+xhr.open('GET', "https://restcountries.com/v3.1/name/india"); // 2.Open the URL
+xhr.onload = function () { // 3.Mention code to run when response is received
+   console.log("The response from server is "+xhr.responseText);
+};
+xhr.send(); // 4.Send the Request
+
+    </script>
+</body>
+</html>
