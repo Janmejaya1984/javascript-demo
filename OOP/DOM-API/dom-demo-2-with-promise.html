@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get The Country Details</title>
+</head>
+<body>
+    <form>
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country"  onblur="showCountryDetails(event)">
+        <input type="button" name="search-btn" onclick="showCountryDetails(event)" value="Show Country Details">
+    </form>
+    <script>
+        function showCountryDetails(event){
+            console.log(event);
+            console.log(event.target.name);
+            console.log(event.target.value);
+            var countryString ="";
+            if(event.target.name==="country"){
+                countryString = event.target.value;
+            }else{
+                countryString = document.getElementById("country").value;
+            }
+            
+          //  var countryString = document.getElementById("country").value;
+           // https://restcountries.com/v3.1/name/india
+           fetch("https://restcountries.com/v3.1/name/"+countryString).
+                                then(function(response){
+                                    if(response.status===200){
+                                    var jsonResponse = response.json();
+                                    jsonResponse.then(function(data){
+                                        console.log("The country details: "+JSON.stringify(data));
+                                    });
+                                }else if(response.status===404){
+                                        console.log("Invalid Country Name ");
+                                }
+                                   // console.log(`Response:${response}`);
+                                   // console.log(`Response Status ${response.status}`);
+                                }).catch(function(err){
+                                    console.log(`Error Happens: ${err.message}`);
+                                });
+        }
+    </script>
+</body>
+</html>

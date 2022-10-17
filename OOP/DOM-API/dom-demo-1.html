@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Example</title>
+</head>
+<body>
+    <div>
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <p>Choose you favourite: </p>
+            <input type="checkbox" id="html" name="fav" value="html" />
+            <label for="scales">html</label>
+            <input type="checkbox" id="js" name="fav" value="js" />
+            <label for="scales">js</label>
+        </div>
+        <div>
+            <p>Choose your gender: </p>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="huey">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="huey">Female</label>
+        </div>
+        <button onclick="check()">Submit</button>
+        <div id="nameValue"></div>
+        <div id="checkedValue"></div>
+        <div id="radioValue"></div>
+    </div>
+    <script>
+        function check() {
+            // name
+            name = document.getElementById("name").value;
+            document.getElementById("nameValue").innerHTML = "<h1>Name: " + name+"</h1>";
+            // checkbox
+            html = document.getElementById("html").checked;
+            js = document.getElementById("js").checked;
+            if (html && js) {
+                document.getElementById("checkedValue").innerHTML = "<h1>You checked both html and js</h1>";
+            }
+            else if (html) {
+                document.getElementById("checkedValue").innerHTML = "<h1>You checked html</h1>";
+            }
+            else if (js) {
+                document.getElementById("checkedValue").innerHTML = "<h1>You checked js</h1>";
+            }
+            else {
+                document.getElementById("checkedValue").innerHTML = "<h1>You checked none</h1>";
+            }
+            // radio button
+            male = document.getElementById("male").checked;
+            female = document.getElementById("female").checked;
+            if (male) {
+                document.getElementById("radioValue").innerHTML = "<h1>Gender: Male</h1>";
+            }
+            else if (female) {
+                document.getElementById("radioValue").innerHTML = "<h1>Gender: Female</h1>";
+            }
+        }
+    </script>
+	
+</body>
+</html>
