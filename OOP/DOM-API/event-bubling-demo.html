@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bublling</title>
+</head>
+<body>
+    <h1>Event Bubling</h1>
+
+    <hr>
+    <div style="border:5px solid teal;width:200px;height:300px;background-color:black;color:white;padding:10px" onclick="div1Click(event)">
+    Div 1
+    <div style="border:5px solid teal;width:100px;height:100px;background-color:blueviolet;color:white;margin:50px auto;padding: 10px" onclick="div2Click(event)">
+        Div 2
+    </div>
+</div>
+<script>
+    function div1Click(e){
+        console.log("Div1 was clicked");
+        e.preventDefault();
+    }
+    function div2Click(e){
+        console.log(e);
+       // e.preventDefault();
+        console.log("Div2 was clicked");
+        e.preventDefault(); 
+    }
+</script>
+
+</body>
+</html>

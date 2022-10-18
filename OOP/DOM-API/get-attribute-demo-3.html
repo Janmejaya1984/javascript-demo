@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Attribute-Demo</title>
+</head>
+<body>
+  
+            <form id="login">
+                Username:<input type="text" id="username" placeholder="Enter your username"><br>
+                Password:<input type="password" id="password" maxlength="10" onblur="display()"><br>
+            </form>
+            <script>
+            function display(){
+                console.log(document.getElementById("username").getAttribute("placeholder"));
+                console.log(document.getElementById("password").value)
+                //All elements are also stored as arrays. We can also access based on the index position.
+                console.log(document.forms[0].elements[1].getAttribute("maxlength"))
+            }
+            </script>
+      
+         
+</body>
+</html>
